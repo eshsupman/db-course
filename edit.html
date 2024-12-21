@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="table.css">
+    <title>Admin panel</title>
+</head>
+<header>
+    <div id = "acc">
+        Hello <span id = "username"></span>
+    </div>
+    <div class="nav">
+        <button onclick="window.location.href='reports.html'">view reports</button>
+        <button onclick="window.location.href='dashboard.html'">Go to dashboard</button>
+        <button onclick="out()">Log out</button>
+    </div>
+</header>
+<body>
+<details>
+    <summary>List of Groups</summary>
+    <div id="groups">
+        <table id="groupsTable" class="table">
+            <thead>
+            <tr>
+                <th>Group ID</th>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <button type="submit" onclick="update('groupsTable')">submit the changes</button>
+        <button type="submit" onclick="addT('groupsTable')">add a new group</button>
+        <button type="submit" onclick="getGroups(); listDelG = []">discard the changes</button>
+
+
+    </div>
+</details>
+<details>
+    <summary>List of Marks</summary>
+    <div id="marks">
+        <table id="marksTable" class="table">
+            <thead>
+            <tr>
+                <th>Mark ID</th>
+                <th>Student ID</th>
+                <th>Subject ID</th>
+                <th>Teacher ID</th>
+                <th>Date</th>
+                <th>Mark Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <button type="submit" onclick="update('marksTable')">submit the changes</button>
+        <button type="submit" onclick="addT('marksTable')">add a new mark</button>
+        <button type="submit" onclick="getMarks(); listDelM = []">discard the changes</button>
+    </div>
+</details>
+<details>
+    <summary>List of subjects</summary>
+    <div id="subjects">
+        <table id="subjectsTable" class=table>
+            <thead>
+            <tr>
+                <th>subject ID</th>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <button type="submit" onclick="update('subjectsTable')">submit the changes</button>
+        <button type="submit" onclick="addT('subjectsTable')">add a new subject</button>
+        <button type="submit" onclick="getSubjects(); listDelS = []">discard the changes</button>
+    </div>
+</details>
+<details>
+    <summary>List of people</summary>
+    <div id="people">
+        <table id="peopleTable" class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Father name</th>
+                <th>Group id</th>
+                <th>Type</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <button type="submit" onclick="update('peopleTable')">submit the changes</button>
+        <button type="submit" onclick="addT('peopleTable')">add a new people</button>
+        <button type="submit" onclick="getPeople(); listDelP = []">discard the changes</button>
+    </div>
+</details>
+
+</body>
+
+
+<script src="edit.js"></script>
+</html>

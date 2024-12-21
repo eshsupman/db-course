@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel = "stylesheet" href = "dashboard.css">
+    <title>Reports</title>
+</head>
+<header>
+    <div id = "acc">
+        Hello <span id = "username"></span>
+    </div>
+    <div class="nav">
+        <button onclick="window.location.href='dashboard.html'">Go to dashboard</button>
+        <button onclick="window.location.href='edit.html'">Go to edit mode</button>
+        <button onclick="out()">Log out</button>
+    </div>
+</header>
+<body>
+<div class="form">
+    <form class="login-form " onsubmit="return false;">
+<div class="filters">
+    <div class="filter-block">
+        <label for="startDate">from:</label>
+        <input type="date" id="startDate">
+    </div>
+    <div class="filter-block">
+        <label for="endDate">to:</label>
+        <input type="date" id="endDate">
+    </div>
+    <div class="filter-block">
+        <label for="Filter">Filter by :</label>
+        <select id="Filter">
+            <option value="year">By year</option>
+            <option value="groups">By group</option>
+            <option value="teacher">By Teacher</option>
+            <option value="student">By Student</option>
+            <option value="subject">By Subject</option>
+
+
+        </select>
+    </div>
+
+</div>
+        <button id="calculateButton">Show average table & chart</button>
+        <button onclick="downloadPerformanceGrowth()">Download Performance Growth</button>
+    </form>
+
+</div>
+
+<div id="main-container">
+<div id="chartContainer">
+    <canvas id="myChart"></canvas>
+</div>
+<div id="tableContainer"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+</body>
+<script src = "reports.js"></script>
+</html>

@@ -1,0 +1,26 @@
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Create Account </title>
+</head>
+<body>
+<div class="login-page">
+
+    <div class="form">
+        <form class="login-form ">
+            <h2 >Create account </h2>
+            <input type="text" required placeholder="Username" id="user" autocomplete="off" />
+            <input oninput="return formvalid()" type="password" required placeholder="Password" id="pass"
+                   autocomplete="off" />
+            <input oninput="return formvalid()" type="password" required placeholder="Retrypassword" id="pass1"
+                   autocomplete="off" />
+            <img src="https://cdn2.iconfinder.com/data/icons/basic-ui-interface-v-2/32/hide-512.png"
+                 onclick="show()" id="showimg">
+            <span id="vaild-pass"></span>
+            <button type="submit" onclick="register()">Create </button>
+        </form>
+        <a href="index.html"> already have account? </a>
+    </div>
+</div>
+<script src="index.js"></script>
+</body>
+</html>

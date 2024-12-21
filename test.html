@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактируемая таблица с календарем</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .edit-date-input {
+            width: 100%;
+            border: none;
+            background-color: transparent;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Редактируемая таблица с календарём</h1>
+
+<table id="editableTable">
+    <thead>
+    <tr>
+        <th>Имя</th>
+        <th>Дата</th>
+        <th>Действие</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td contenteditable="true">Иван</td>
+        <td class="editable-date">2024-12-20</td>
+        <td><button class="delete-row">Удалить</button></td>
+    </tr>
+    <tr>
+        <td contenteditable="true">Ольга</td>
+        <td class="editable-date">2023-11-15</td>
+        <td><button class="delete-row">Удалить</button></td>
+    </tr>
+    </tbody>
+</table>
+
+<button id="addRow">Добавить строку</button>
+
+<script>
+    // Функция для замены ячейки с датой на input type="date"
+    function makeDateEditable(td) {
+        const currentDate = td.textContent.trim();
+        const input = document.createElement('input');
+        input.type = 'date';
+        input.value = currentDate;
+        input.classList.add('edit-date-input');
+
+        // Сохранение изменений по потере фокуса
+        input.addEventListener('blur', () => {
+            td.textContent = input.value || currentDate;
+            td.addEventListener('click', onDateCellClick); // Восстанавливаем возможность клика
+        });
+
+        // Поддержка сохранения по нажатию Enter
+        input.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                input.blur(); // Симулируем потерю фокуса
+            }
+        });
+
+        td.textContent = ''; // Очищаем содержимое ячейки
+        td.appendChild(input);
+        input.focus(); // Сразу ставим фокус на input
+    }
+
+    function onDateCellClick(event) {
+        const td = event.target;
+        td.removeEventListener('click', onDateCellClick); // Убираем обработчик, чтобы не было повторного клика
+        makeDateEditable(td);
+    }
+
+    // Добавляем обработчики на все существующие ячейки с датами
+    document.querySelectorAll('.editable-date').forEach(td => {
+        td.addEventListener('click', onDateCellClick);
+    });
+
+    // Функция для добавления новой строки
+    document.getElementById('addRow').addEventListener('click', () => {
+        const tbody = document.querySelector('#editableTable tbody');
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td contenteditable="true">Новое имя</td>
+            <td class="editable-date">2024-01-01</td>
+            <td><button class="delete-row">Удалить</button></td>
+        `;
+        tbody.appendChild(newRow);
+        const dateCell = newRow.querySelector('.editable-date');
+        dateCell.addEventListener('click', onDateCellClick);
+
+        const deleteButton = newRow.querySelector('.delete-row');
+        deleteButton.addEventListener('click', () => newRow.remove());
+    });
+
+    // Обработчик для кнопки удаления строки
+    document.querySelectorAll('.delete-row').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const row = event.target.closest('tr');
+            row.remove();
+        });
+    });
+</script>
+
+</body>
+</html>

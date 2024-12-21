@@ -1,0 +1,26 @@
+<head>
+  <link rel="stylesheet" href="style.css">
+  <title>Auth </title>
+</head>
+<body>
+<div class="login-page">
+  <div class="form">
+    <form class="login-form ">
+      <h2>Enter your account data </h2>
+      <input type="text" required placeholder="Username" id="user" autocomplete="off" />
+      <input  type="password" required placeholder="Password" id="pass"
+             autocomplete="off" />
+
+      <img src="https://cdn2.iconfinder.com/data/icons/basic-ui-interface-v-2/32/hide-512.png"
+           onclick="show()" id="showimg">
+      <span id="vaild-pass"></span>
+      <button type="submit" onclick="login()">Login </button>
+    </form>
+
+    <a href="register.html" class="registerbtn">Sing up</a>
+  </div>
+
+</div>
+<script src="login.js"></script>
+</body>
+</html>

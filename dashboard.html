@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <link rel = "stylesheet" href = "dashboard.css">
+    <title>Dashboard</title>
+</head>
+<header>
+    <div id = "acc">
+    Hello <span id = "username"></span>
+    </div>
+    <div class="nav">
+        <button onclick="window.location.href='reports.html'">View reports</button>
+        <button onclick="window.location.href='edit.html'">Go to edit mode</button>
+        <button onclick="out()">Log out</button>
+    </div>
+</header>
+<body>
+
+
+</div>
+<details>
+    <summary>List of Groups</summary>
+    <div id="groups">
+        <table id="groupsTable" class="table">
+            <thead>
+            <tr>
+                <th>Group ID</th>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</details>
+
+<details>
+    <summary>List of Marks</summary>
+    <div id="marks">
+        <table id="marksTable" class="table">
+            <thead>
+            <tr>
+                <th>Mark ID</th>
+                <th>Student ID</th>
+                <th>Subject ID</th>
+                <th>Teacher ID</th>
+                <th>Date</th>
+                <th>Mark Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</details>
+
+<details>
+    <summary>List of subjects</summary>
+    <div id="subjects">
+        <table id="subjectsTable" class=table>
+            <thead>
+            <tr>
+                <th>subject ID</th>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</details>
+<details>
+    <summary>List of people</summary>
+    <div id="people">
+        <table id="peopleTable" class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Father name</th>
+                <th>Group id</th>
+                <th>Type</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</details>
+
+</body>
+<script src = "dashboard.js"></script>
+</html>
