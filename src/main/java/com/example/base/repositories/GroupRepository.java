@@ -1,0 +1,8 @@
+package com.example.base.repositories;
+
+import com.example.base.entitys.Group;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface GroupRepository extends JpaRepository<Group, Integer> {
+
+}
